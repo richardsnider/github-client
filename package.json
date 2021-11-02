@@ -3,15 +3,12 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "scripts": {
-    "start": "webpack --mode=development --devtool=source-map && node server.js",
-    "build": "webpack --mode=development --devtool=source-map"
+    "start": "npm run build && node server.js",
+    "build": "node build.js"
   },
   "dependencies": {
     "@vorprog/elemancer": "^1.0.0",
     "@vorprog/loop": "^1.1.1",
     "webpack": "^5.27.1"
-  },
-  "devDependencies": {
-    "webpack-cli": "^4.5.0"
   }
 }
