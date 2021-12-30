@@ -30,7 +30,6 @@ const getBannerConfig = require('./getBannerConfig');
       },
       {
         tag: `tbody`,
-        class: `grey-222`,
         id: `data-table-body`
       }
     ]

@@ -4,7 +4,7 @@ body, body * {
   font-weight: 500;
   font-family: 'Courier New';
   line-height: 20px;
-  color: #DDD;
+  color: #FFF;
   overflow: auto;
   outline: none;
 }
@@ -73,6 +73,10 @@ table {
 
 .curved {
   border-radius: 5px;
+}
+
+.black {
+  background-color: #000;
 }
 
 .grey-111 {

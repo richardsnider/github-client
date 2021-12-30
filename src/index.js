@@ -15,7 +15,7 @@ const updateQueryString = require('./utilities/updateQueryString');
 const startup = async () => {
   console.log(`Document intialized.`);
 
-  document.body.classList.add(`grey-111`);
+  document.body.classList.add(`black`);
 
   const svgContentElement = newElement(document.body, svgContent());
   const bannerElement = newElement(document.body, banner(messages.bannerMessage, `welcome-banner`));
