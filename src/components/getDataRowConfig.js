@@ -7,7 +7,7 @@ const getButtonConfig = require('./getButtonConfig');
  */
 module.exports = (id, data) => Object.assign({
   tag: `tr`,
-  onclick: (event) => event.target.parentElement.classList.toggle(`blue-35a`), // event.target is cell element, use parent to highlight entire row
+  onclick: (event) => event.target.parentElement.classList.toggle(`blue`), // event.target is cell element, use parent to highlight entire row
   id: id,
   children: [
     {

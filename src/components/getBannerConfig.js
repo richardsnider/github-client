@@ -6,7 +6,7 @@ const svg = require('./getSvgConfig');
  */
 module.exports = (bannerMessage = `<banner message>`, id = `banner`) => ({
   id: id,
-  class: `blue-35a row`,
+  class: `blue row`,
   children: [
     {
       class: `row`,
