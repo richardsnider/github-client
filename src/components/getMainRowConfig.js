@@ -6,15 +6,15 @@ const getBannerConfig = require('./getBannerConfig');
  * @param {import('@vorprog/elemancer').ElementConfig} customConfig
  * @returns {import('@vorprog/elemancer').ElementConfig}
  */
- module.exports = (customConfig = {}) => Object.assign({
+module.exports = (customConfig = {}) => Object.assign({
   id: `main-row`,
   class: `row`,
   children: [{
     id: `action-bar`,
     class: `grey-444 row`,
     children: [
-      input({ id: `filter-input` }), 
-      getActionButtonsConfig()
+      getActionButtonsConfig(),
+      input({ id: `filter-input` })
     ]
   },
   getBannerConfig(`Loading . . .`, `request-status-banner`),
@@ -34,5 +34,5 @@ const getBannerConfig = require('./getBannerConfig');
       }
     ]
   }
-]
+  ]
 }, customConfig);
