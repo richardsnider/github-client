@@ -7,7 +7,10 @@ const button = require('./button');
  */
 module.exports = (id, data) => Object.assign({
   tag: `tr`,
-  onclick: (event) => event.target.parentElement.classList.toggle(`blue`), // event.target is cell element, use parent to highlight entire row
+  // TODO: figure out row selection highlighting
+  // onclick: (event) => {
+    // event.target.parentElement.classList.toggle(`blue`); // event.target is cell element, use parent to highlight entire row
+  // },
   id: id,
   children: [
     {
