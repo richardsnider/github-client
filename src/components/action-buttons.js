@@ -1,4 +1,4 @@
-const button = require('./getButtonConfig');
+const button = require('./button');
 
 /** 
  * @param {import('@vorprog/elemancer').ElementConfig} customConfig

@@ -1,4 +1,4 @@
-const svg = require(`./getSvgConfig`);
+const svg = require(`./svg`);
 
 /**
  * @param {string} symbolName

@@ -1,14 +1,14 @@
-const columnHeader = require('../components/getColumnHeaderConfig');
+const columnHeader = require('../components/column-header');
 const util = require('../utilities/all');
 const makeGithubContentsRequest = require('./makeGithubContentsRequest');
-const getButtonConfig = require('../components/getButtonConfig');
-const getRowDataConfig = require('../components/getDataRowConfig');
+const button = require('../components/button');
+const dataRow = require('../components/data-row');
 
 /**
  * @param {CustomEvent} loadDataEvent 
  * @returns {void}
  */
-const fillDataTable = async (loadDataEvent) => {
+ module.exports = async (loadDataEvent) => {
   const path = loadDataEvent.detail || ``;
   const requestContentsTask = makeGithubContentsRequest(path);
   const requestStatusBanner = document.getElementById(`request-status-banner`);
@@ -42,7 +42,7 @@ const fillDataTable = async (loadDataEvent) => {
         tag: `th`,
         class: `padded`,
         children: [
-          getButtonConfig(`back`, {
+          button(`back`, {
             onclick: () => {
               const event = new CustomEvent(`LOAD_DATA`, { detail: parentPath });
               document.dispatchEvent(event)
@@ -58,8 +58,6 @@ const fillDataTable = async (loadDataEvent) => {
   });
 
   util.loop(contents, (key, value) => 
-    util.newElement(dataTableBody, getRowDataConfig(`data-row-${key}`, value))
+    util.newElement(dataTableBody, dataRow(`data-row-${key}`, value))
   );
 };
-
-module.exports = fillDataTable;

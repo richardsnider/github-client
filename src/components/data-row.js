@@ -1,4 +1,4 @@
-const getButtonConfig = require('./getButtonConfig');
+const button = require('./button');
 
 /**
  * @param {string} id
@@ -14,7 +14,7 @@ module.exports = (id, data) => Object.assign({
       tag: `td`,
       class: `padded grey-border`,
       children: [ data.type === `dir` ?
-        getButtonConfig(`folder`, {
+        button(`folder`, {
           height: `20px`,
           width: `20px`,
           onclick: () => {
@@ -22,7 +22,7 @@ module.exports = (id, data) => Object.assign({
             document.dispatchEvent(event)
           }
         }) :
-        getButtonConfig(`view`, {
+        button(`view`, {
           height: `20px`,
           width: `20px`,
           href: data.path

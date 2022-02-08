@@ -1,6 +1,6 @@
-const input = require('./getInputConfig');
-const getActionButtonsConfig = require('./getActionsbuttonsConfig');
-const getBannerConfig = require('./getBannerConfig');
+const input = require('./input');
+const actionButtons = require('./action-buttons');
+const banner = require('./banner');
 
 /** 
  * @param {import('@vorprog/elemancer').ElementConfig} customConfig
@@ -13,11 +13,11 @@ module.exports = (customConfig = {}) => Object.assign({
     id: `action-bar`,
     class: `grey-444 row`,
     children: [
-      getActionButtonsConfig(),
+      actionButtons(),
       input({ id: `filter-input` })
     ]
   },
-  getBannerConfig(`Loading . . .`, `request-status-banner`),
+  banner(`Loading . . .`, `request-status-banner`),
   {
     tag: `table`,
     id: `data-table`,
