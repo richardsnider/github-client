@@ -17,6 +17,7 @@ module.exports = (id, data) => Object.assign({
         button(`folder`, {
           height: `20px`,
           width: `20px`,
+          fill: `#FFF`,
           onclick: () => {
             const event = new CustomEvent(`LOAD_DATA`, { detail: data.path });
             document.dispatchEvent(event)
@@ -25,6 +26,7 @@ module.exports = (id, data) => Object.assign({
         button(`view`, {
           height: `20px`,
           width: `20px`,
+          fill: `#FFF`,
           href: data.path
         })
       ]
