@@ -13,7 +13,7 @@ module.exports = (id, data) => Object.assign({
     {
       tag: `td`,
       class: `padded grey-border`,
-      children: [ data.type === `dir` ?
+      children: [data.type === `dir` ?
         button(`folder`, {
           height: `20px`,
           width: `20px`,
@@ -23,12 +23,17 @@ module.exports = (id, data) => Object.assign({
             document.dispatchEvent(event)
           }
         }) :
-        button(`view`, {
-          height: `20px`,
-          width: `20px`,
-          fill: `#FFF`,
-          href: data.path
-        })
+        {
+          tag: `a`,
+          href: data.path,
+          target: `_blank`,
+          children: [button(`view`, {
+            height: `20px`,
+            width: `20px`,
+            fill: `#FFF`
+          })
+          ]
+        }
       ]
     },
     {
