@@ -8,4 +8,4 @@ module.exports = (symbolName, customConfig = {}) => svg(symbolName, Object.assig
   width: `24px`,
   height: `24px`,
   class: `clickable padded curved grey-border`
-}, customConfig))
+}, customConfig));
