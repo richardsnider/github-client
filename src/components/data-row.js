@@ -29,6 +29,7 @@ module.exports = (id, data) => Object.assign({
         {
           tag: `a`,
           href: data.path,
+          rel: `noreferrer noopener`,
           target: `_blank`,
           children: [button(`view`, {
             height: `20px`,
@@ -46,6 +47,7 @@ module.exports = (id, data) => Object.assign({
         {
           tag: `a`,
           href: data.type === `dir` ? data.html_url : data.download_url,
+          rel: `noreferrer noopener`,
           target: `_blank`,
           textContent: data.name
         }
