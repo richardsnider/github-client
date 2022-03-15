@@ -1,6 +1,5 @@
 const newElement = require('@vorprog/elemancer');
 const messages = require('./data/messages');
-const svgContent = require('./components/svg-content');
 const banner = require('./components/banner');
 const header = require('./components/header');
 const menu = require('./components/menu');
@@ -13,10 +12,6 @@ const updateQueryString = require('./utilities/updateQueryString');
 
 const startup = async () => {
   console.log(`Document intialized.`);
-
-  document.body.classList.add(`black`);
-
-  const svgContentElement = newElement(document.body, svgContent());
   const bannerElement = newElement(document.body, banner(messages.bannerMessage, `welcome-banner`));
   const headerElement = newElement(document.body, header());
   const menuElement = newElement(document.body, menu());

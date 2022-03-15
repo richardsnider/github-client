@@ -1,24 +1,37 @@
 const filesystem = require('fs');
 const http = require('http');
 
+const indexHTMLContent = filesystem.readFileSync(`./dist/index.html`, { encoding: `utf8` })
+indexHTMLContent = indexHTMLContent.replace(`__GITHUB_USERNAME__`, process.env.GITHUB_USERNAME)
+indexHTMLContent = indexHTMLContent.replace(`__LINKEDIN_USERNAME__`, process.env.LINKEDIN_USERNAME)
+
 /** @type {http.RequestListener} */
 const serve = (request, response) => {
-  let requestedFileData;
+  let responseData;
   try {
     const urlFilePath = request.url.split(`?`)[0];
-    if(urlFilePath === `/`) urlFilePath = `/index.html`;
-    //TODO: fix subsequent request for '/' that doesn't seem to be forwarding to '/index.html'
     console.log(`Request URL is: ${urlFilePath}`);
-    requestedFileData = filesystem.readFileSync(`./dist${urlFilePath}`);
+
+    if (urlFilePath === `/` || urlFilePath === `/index.html`) responseData = indexHTMLContent;
+    else {
+      try {
+        responseData = filesystem.readFileSync(`./dist${urlFilePath}`);
+      } catch (error) {
+        response.writeHead(404);
+        response.end(`The requested URL ${request.url} was not found on this server.`);
+        return;
+      }
+    }
+
+    if (request.url === `/styles.css`) response.setHeader(`Content-Type`, `text/css`);
+    response.writeHead(200);
+    response.end(responseData);
   } catch (error) {
-    response.writeHead(404);
-    response.end(`The requested URL ${request.url} was not found on this server.`);
+    console.log(`Request URL is: ${urlFilePath}`);
+    response.writeHead(500);
+    response.end(`500 Internal Server Error`);
     return;
   }
-
-  if(request.url === `/styles.css`) response.setHeader(`Content-Type`, `text/css`);
-  response.writeHead(200);
-  response.end(requestedFileData);
 };
 
 const listeningPort = process.env.NODE_LISTENER_PORT || 8080;
