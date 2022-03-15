@@ -2,8 +2,8 @@ const filesystem = require('fs');
 const http = require('http');
 
 const indexHTMLContent = filesystem.readFileSync(`./dist/index.html`, { encoding: `utf8` })
-indexHTMLContent = indexHTMLContent.replace(`__GITHUB_USERNAME__`, process.env.GITHUB_USERNAME)
-indexHTMLContent = indexHTMLContent.replace(`__LINKEDIN_USERNAME__`, process.env.LINKEDIN_USERNAME)
+  .replace(`__GITHUB_USERNAME__`, process.env.GITHUB_USERNAME)
+  .replace(`__LINKEDIN_USERNAME__`, process.env.LINKEDIN_USERNAME)
 
 /** @type {http.RequestListener} */
 const serve = (request, response) => {
