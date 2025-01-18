@@ -12,14 +12,17 @@ const updateQueryString = require('./utilities/updateQueryString');
 
 const startup = async () => {
   console.log(`Document intialized.`);
-  const bannerElement = newElement(document.body, banner(messages.bannerMessage, `welcome-banner`));
-  const headerElement = newElement(document.body, header());
-  const menuElement = newElement(document.body, menu());
-  const notificationsElement = newElement(document.body, notifications());
-  const settingsElement = newElement(document.body, settings());
-
-  const mainRowElement = newElement(document.body, mainRow());
-  const footerElement = newElement(document.body, footer());
+  const content = newElement(document.body, {
+    children: {
+      "banner": banner(messages.bannerMessage, `welcome-banner`),
+      "header": header(),
+      "menu": menu(),
+      "notification": notifications(),
+      "settings": settings(),
+      "mainRow": mainRow(),
+      "footer": footer()
+    }
+  });
 
   document.getElementById(`filter-input`).focus();
 

@@ -11,16 +11,15 @@ const dataRow = require('../components/data-row');
  module.exports = async (loadDataEvent) => {
   const path = loadDataEvent.detail || ``;
   const requestContentsTask = makeGithubContentsRequest(path);
+
   const requestStatusBanner = document.getElementById(`request-status-banner`);
   const requestStatusBannerMessage = document.getElementById(`request-status-banner-message`);
   requestStatusBanner.classList.remove(`hidden`);
   requestStatusBannerMessage.textContent = `Fetching ${path} . . .`;
   requestStatusBanner.style.backgroundColor = `grey`;
 
-  const dataTableHead = document.getElementById(`data-table-head`);
-  const dataTableBody = document.getElementById(`data-table-body`);
-  util.clearElement(dataTableHead);
-  util.clearElement(dataTableBody);
+  document.getElementById(`data-table-head`).innerHTML = ``;
+  document.getElementById(`data-table-body`).innerHTML = ``;
 
   const contentsResponse = await requestContentsTask;
   if (contentsResponse.status !== 200) {

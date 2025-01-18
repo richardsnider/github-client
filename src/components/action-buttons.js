@@ -6,6 +6,7 @@ const button = require('./button');
  */
 module.exports = (customConfig = {}) => Object.assign({
   id: `action-buttons`,
+  class: `padded`,
   children: [
     button(`refresh`, {
       onclick: () => {
